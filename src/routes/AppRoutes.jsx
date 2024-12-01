@@ -9,7 +9,7 @@ import Contact from '../pages/Contact';
 
 const AppRoutes = () => {
   return (
-    <Routes> {/* All routes go inside Routes */}
+    <Routes> 
       <Route path="/" element={<Home />} />
       <Route path="/catalog/:slug" element={<Product />} />
       <Route path="/catalog" element={<Catalog />} />
