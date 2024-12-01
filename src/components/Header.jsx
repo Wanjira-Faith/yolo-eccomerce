@@ -29,8 +29,8 @@ const Header = () => {
 
     const headerRef = useRef(null)
 
-    useEffect(() => {
-    window.addEventListener("scroll", () => {
+    // Define the scroll event handler
+    const handleScroll = () => {
         if (headerRef.current) { // Check if headerRef.current is not null
             if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
                 headerRef.current.classList.add('shrink')
@@ -38,11 +38,17 @@ const Header = () => {
                 headerRef.current.classList.remove('shrink')
             }
         }
-    })
-    return () => {
-        window.removeEventListener("scroll")
-    };
-}, []);
+    }
+
+    useEffect(() => {
+        // Add event listener
+        window.addEventListener("scroll", handleScroll)
+
+        // Cleanup function: Remove event listener
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        }
+    }, [])
 
     const menuLeft = useRef(null)
 

@@ -1,22 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client'; 
 import reportWebVitals from './reportWebVitals';
 
-import { store } from './redux/store'
-import { Provider } from 'react-redux'
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
 
-import './assets/boxicons-2.0.7/css/boxicons.min.css'
-import './sass/index.scss'
+import './assets/boxicons-2.0.7/css/boxicons.min.css';
+import './sass/index.scss';
 
-import Layout from './components/Layout'
+import Layout from './components/Layout';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <Layout />
     </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
